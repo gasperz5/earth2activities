@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "centrifuge": "^2.8.5",
+    "open": "^10.0.3",
+    "ws": "^8.16.0"
+  }
+}
