@@ -2,7 +2,7 @@
 
 ### How to
 
-If you want to run the script to log activity events youself, you need to install Node.js and npm. Then you can install the required packages by running the following command in the terminal:
+If you want to run the script to log activity events yourself, you need to install Node.js and npm. Then you can install the required packages by running the following command in the terminal:
 ```shell
 npm install centrifuge@2 ws
 ```
