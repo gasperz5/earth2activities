@@ -1,8 +1,12 @@
+// @name         Simple Log
+// @version      0.1.1
+// @description  Simple log for earth2.io activities
+// @author       GasperZ5 -- gasperz (Discord) -- gasper (7.5% code for E2)
+// @support      https://www.buymeacoffee.com/gasper
+
 const Centrifuge = require('centrifuge');
 global.WebSocket = require('ws');
 const fs = require('fs');
-
-
 
 const centrifuge = new Centrifuge('wss://rtc.earth2.io/connection/websocket', {
     debug: true
