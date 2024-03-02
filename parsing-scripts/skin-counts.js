@@ -9,8 +9,9 @@ const fs = require('fs');
 The timestamp is there to measure the time in milliseconds from the start of the skin drop - releaseAt attribute from the skin store API - only available while the skin is in the store
 const meta = { startTimestamp: new Date('2024-02-14T07:00:00.000Z'), files:['2024-02-14.log','2024-02-15.log'], drop: 'Cupid\'s Cleaner' };
 const meta = { startTimestamp: new Date('2024-02-12T22:45:00.000Z'), files: ['2024-02-12.log', '2024-02-13.log'], drop: 'Casual Cupid' };
+const meta = { startTimestamp: new Date('2024-02-24T08:00:00.000Z'), files: ['2024-02-24.log', '2024-02-25.log'], drop: 'Horror Warning' },
 */
-const meta = { startTimestamp: new Date('2024-02-24T08:00:00.000Z'), files: ['2024-02-24.log', '2024-02-25.log'], drop: 'Horror Warning' }
+const meta = { startTimestamp: new Date('2024-03-02T15:00:00.000Z'), files: ['2024-03-02.log', '2024-03-03.log'], drop: 'Khapera' }
 
 
 const labels = {
