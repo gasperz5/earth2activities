@@ -10,9 +10,9 @@ The timestamp is there to measure the time in milliseconds from the start of the
 const meta = { startTimestamp: new Date('2024-02-14T07:00:00.000Z'), files:['2024-02-14.log','2024-02-15.log'], drop: 'Cupid\'s Cleaner' };
 const meta = { startTimestamp: new Date('2024-02-12T22:45:00.000Z'), files: ['2024-02-12.log', '2024-02-13.log'], drop: 'Casual Cupid' };
 const meta = { startTimestamp: new Date('2024-02-24T08:00:00.000Z'), files: ['2024-02-24.log', '2024-02-25.log'], drop: 'Horror Warning' },
-*/
 const meta = { startTimestamp: new Date('2024-03-02T15:00:00.000Z'), files: ['2024-03-02.log', '2024-03-03.log'], drop: 'Khapera' }
-
+*/
+const meta = { startTimestamp: new Date('2024-03-07T01:00:00.000Z'), files: ['2024-03-07.log', '2024-03-08.log'], drop: 'Hiker\'s Haven'}
 
 const labels = {
     AVATAR_GIFT_BOUGHT: 'gifted',
