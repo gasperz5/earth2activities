@@ -1,5 +1,5 @@
 // @name         Simple Log
-// @version      0.1.2
+// @version      0.1.3
 // @description  Simple log for earth2.io activities
 // @author       GasperZ5 -- gasperz (Discord) -- gasper (7.5% code for E2)
 // @support      https://www.buymeacoffee.com/gasper
@@ -8,7 +8,8 @@ const Centrifuge = require('centrifuge');
 global.WebSocket = require('ws');
 const fs = require('fs');
 
-const FOLDER_PATH = './logs/';
+require('dotenv').config();
+const FOLDER_PATH = process.env.FOLDER_PATH;
 
 if (!fs.existsSync(FOLDER_PATH)) {
     fs.mkdirSync(FOLDER_PATH);
