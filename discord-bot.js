@@ -1,5 +1,5 @@
 // @name         Discord bot for skins
-// @version      0.1.4
+// @version      0.1.5
 // @description  Simple log for earth2.io activities
 // @author       GasperZ5 -- gasperz (Discord) -- gasper (7.5% code for E2)
 // @support      https://www.buymeacoffee.com/gasper
@@ -96,7 +96,8 @@ async function processBulkNotification() {
             try {
                 const channel = client.channels.cache.get(STATS_DISCORD_CHANNEL_ID);
                 if (channel) {
-                    await channel.send(`Update: ${key} was bought ${bulkNotification[key].count} times in the last ${(new Date().getTime() - bulkNotification[key].date.getTime())/60000} minutes totaling ${skin_stats[key]} sold`);
+                    let timeDiffSeconds = parseInt((new Date().getTime() - bulkNotification[key].date.getTime())/1000);
+                    await channel.send(`Update: ${key} was bought ${bulkNotification[key].count} times in the last ${parseInt(timeDiffSeconds/60)} minutes ${parseInt(timeDiffSeconds%60)} seconds totaling ${skin_stats[key]} sold`);
                 } else {
                     console.error(`Discord channel with ID ${STATS_DISCORD_CHANNEL_ID} not found.`);
                 }

@@ -47,6 +47,7 @@ for (let index = 0; index < meta.files.length; index++) {
         } else {
             counts[element.data.data.name][element.data.activity_type] = element.data.data.quantity;
         }
+        counts[element.data.data.name].last = element;
         objects.push(element);
     }
 }
@@ -76,8 +77,13 @@ for (const key in counts) {
 for (const key in counts) {
     let line = key.padEnd(longest + 2, ' ') + ' - ';
     for (const key2 in counts[key]) {
+        if (!labels[key2]) {
+            continue;
+        }
         line += labels[key2] + ' : ' + counts[key][key2] + ', ';
     }
+    const time =  new Date(counts[key].last.data.created_at) - meta.startTimestamp;
+    line += 'last: '+ parseInt(time/3600000) + 'h ' + parseInt((time%3600000)/60000) + 'm ' + parseInt((time%60000)/1000) + 's ' + parseInt(time%1000) + 'ms in';
     console.log(line);
 }
 console.log('There was a total of', sum, 'skins bought', 'with a maximum of', max, 'skins bought at once', 'from', objects.length, 'transactions');
