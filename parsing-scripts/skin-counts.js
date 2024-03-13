@@ -1,5 +1,5 @@
 // @name         Skin Counts
-// @version      0.1.0
+// @version      0.1.1
 // @description  This script will read the files and print the counts of skins bought and gift codes bought
 // @author       GasperZ5 -- gasperz (Discord) -- gasper (7.5% code for E2)
 // @support      https://www.buymeacoffee.com/gasper
@@ -11,8 +11,9 @@ const meta = { startTimestamp: new Date('2024-02-14T07:00:00.000Z'), files:['202
 const meta = { startTimestamp: new Date('2024-02-12T22:45:00.000Z'), files: ['2024-02-12.log', '2024-02-13.log'], drop: 'Casual Cupid' };
 const meta = { startTimestamp: new Date('2024-02-24T08:00:00.000Z'), files: ['2024-02-24.log', '2024-02-25.log'], drop: 'Horror Warning' },
 const meta = { startTimestamp: new Date('2024-03-02T15:00:00.000Z'), files: ['2024-03-02.log', '2024-03-03.log'], drop: 'Khapera' }
-*/
 const meta = { startTimestamp: new Date('2024-03-07T01:00:00.000Z'), files: ['2024-03-07.log', '2024-03-08.log'], drop: 'Hiker\'s Haven'}
+*/
+const meta = { startTimestamp: new Date('2024-03-12T23:00:00.000Z'), files: ['2024-03-12.log', '2024-03-13.log'], drop: 'Anubis'}
 
 const labels = {
     AVATAR_GIFT_BOUGHT: 'gifted',
