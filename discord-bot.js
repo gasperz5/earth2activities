@@ -1,5 +1,5 @@
 // @name         Discord bot for skins
-// @version      0.1.5
+// @version      0.1.6
 // @description  Simple log for earth2.io activities
 // @author       GasperZ5 -- gasperz (Discord) -- gasper (7.5% code for E2)
 // @support      https://www.buymeacoffee.com/gasper
@@ -8,13 +8,15 @@ const Centrifuge = require('centrifuge');
 global.WebSocket = require('ws');
 const fs = require('fs');
 const { Client, GatewayIntentBits } = require("discord.js");
+const { spawn } = require('child_process');
+
 
 require('dotenv').config();
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const STATS_DISCORD_CHANNEL_ID = process.env.STATS_DISCORD_CHANNEL_ID;
 const ANNOUNCE_DISCORD_CHANNEL_ID = process.env.ANNOUNCE_DISCORD_CHANNEL_ID;
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 client.login(DISCORD_TOKEN);
 
 
@@ -50,13 +52,13 @@ async function start() {
             if (bulkNotification[name] === undefined) {
                 bulkNotification[name] = { count: 0, date: new Date() };
             }
-            bulkNotification[name].count+=count;
-            
-            if(!skin_stats[name]){
+            bulkNotification[name].count += count;
+
+            if (!skin_stats[name]) {
                 skin_stats[name] = 0;
             }
             skin_stats[name] += count;
-            
+
             if (!skin_names.includes(name)) {
                 skin_names.push(name);
                 fs.writeFileSync('./skin_names.json', JSON.stringify(skin_names, null, 4));
@@ -96,8 +98,8 @@ async function processBulkNotification() {
             try {
                 const channel = client.channels.cache.get(STATS_DISCORD_CHANNEL_ID);
                 if (channel) {
-                    let timeDiffSeconds = parseInt((new Date().getTime() - bulkNotification[key].date.getTime())/1000);
-                    await channel.send(`Update: ${key} was bought ${bulkNotification[key].count} times in the last ${parseInt(timeDiffSeconds/60)} minutes ${parseInt(timeDiffSeconds%60)} seconds totaling ${skin_stats[key]} sold`);
+                    let timeDiffSeconds = parseInt((new Date().getTime() - bulkNotification[key].date.getTime()) / 1000);
+                    await channel.send(`Update: ${key} was bought ${bulkNotification[key].count} times in the last ${parseInt(timeDiffSeconds / 60)} minutes ${parseInt(timeDiffSeconds % 60)} seconds totaling ${skin_stats[key]} sold`);
                 } else {
                     console.error(`Discord channel with ID ${STATS_DISCORD_CHANNEL_ID} not found.`);
                 }
@@ -115,5 +117,34 @@ async function processBulkNotification() {
 client.on('ready', () => {
     start();
     setInterval(processBulkNotification, 60 * 1000);
-});
 
+    client.on('messageCreate', async (message) => {
+
+        if (message.channel.id === STATS_DISCORD_CHANNEL_ID && message.content.startsWith('!stats')) {
+
+           
+            let args = [];
+            if (message.content.split(' ').length > 1) {
+                args = message.content.split(' ').slice(1);
+            }
+
+            const child = spawn('node', ['skin-counts.js', ...args], { cwd: 'parsing-scripts/' });
+
+            let msg = '';
+            child.stdout.on('data', (data) => {
+                msg += data;
+            });
+            
+            child.stderr.on('data', (data) => {
+                console.error(`stderr: ${data}`);
+            });
+
+            child.on('close', (code) => {
+                console.log(`child process exited with code ${code}`);
+                message.channel.send('```' + msg + '```');
+            });
+        }
+
+    });
+
+});
