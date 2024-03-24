@@ -1,5 +1,5 @@
 // @name         Skin Counts
-// @version      0.1.2
+// @version      0.1.3
 // @description  This script will read the files and print the counts of skins bought and gift codes bought
 // @author       GasperZ5 -- gasperz (Discord) -- gasper (7.5% code for E2)
 // @support      https://www.buymeacoffee.com/gasper
@@ -16,8 +16,11 @@ if (argv.length < 3) {
     meta = { startTimestamp: new Date('2024-02-24T08:00:00.000Z'), files: ['2024-02-24.log', '2024-02-25.log'], drop: 'Horror Warning' },
     meta = { startTimestamp: new Date('2024-03-02T15:00:00.000Z'), files: ['2024-03-02.log', '2024-03-03.log'], drop: 'Khapera' }
     meta = { startTimestamp: new Date('2024-03-07T01:00:00.000Z'), files: ['2024-03-07.log', '2024-03-08.log'], drop: 'Hiker\'s Haven'}
-    */
     meta = { startTimestamp: new Date('2024-03-12T23:00:00.000Z'), files: ['2024-03-12.log', '2024-03-13.log'], drop: 'Anubis' }
+    meta = { startTimestamp: new Date('2024-03-20T17:35:00.000Z'), files: ['2024-03-20.log', '2024-03-21.log'], drop: 'E2 GDC 2024' }
+    */
+   meta = { startTimestamp: new Date('2024-03-24T06:30:00.000Z'), files: ['2024-03-24.log', '2024-03-25.log'], drop: 'Jolly Roger' }
+
 } else {
     const startTimestamp = new Date(argv[2]);
     const files = argv.slice(3);
