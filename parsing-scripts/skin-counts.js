@@ -58,7 +58,7 @@ for (let index = 0; index < meta.files.length; index++) {
     const lines = file.split('\r\n').slice(0, -1);
     for (let index = 0; index < lines.length; index++) {
         const element = JSON.parse(lines[index]);
-        if ('AVATAR_GIFT_BOUGHT' !== element.data.activity_type && 'AVATAR_BOUGHT' !== element.data.activity_type) {
+        if ('AVATAR_GIFT_BOUGHT' !== element.data.activity_type && 'AVATAR_BOUGHT' !== element.data.activity_type || new Date(element.data.created_at) < new Date(meta.startTimestamp)) {
             continue;
         }
         if (element.data.data.quantity > max) {
@@ -101,10 +101,10 @@ for (const key in counts) {
         if (total.toString().length > labelLengths.total) {
             labelLengths.total = total.toString().length;
         }
-        if (element['AVATAR_GIFT_BOUGHT'].toString().length > labelLengths['AVATAR_GIFT_BOUGHT']) {
+        if (element['AVATAR_GIFT_BOUGHT']?.toString().length > labelLengths['AVATAR_GIFT_BOUGHT']) {
             labelLengths['AVATAR_GIFT_BOUGHT'] = element['AVATAR_GIFT_BOUGHT'].toString().length;
         }
-        if (element['AVATAR_BOUGHT'].toString().length > labelLengths['AVATAR_BOUGHT']) {
+        if (element['AVATAR_BOUGHT']?.toString().length > labelLengths['AVATAR_BOUGHT']) {
             labelLengths['AVATAR_BOUGHT'] = element['AVATAR_BOUGHT'].toString().length;
         }
     }
