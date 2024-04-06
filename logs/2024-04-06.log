@@ -1,0 +1,7 @@
+{"data":{"created_at":"2024-04-06T00:01:15.442Z","data":{"buyer":{},"civilian":{"name":"HPQ-EG-RC1-M1"},"seller":{},"price":"13.0"},"id":"53d83811-3286-47e6-9968-a293b30ed7b6","activity_type":"CIVILIAN_BOUGHT","topic":null,"event":"activity-feed"}}
+{"data":{"created_at":"2024-04-06T00:02:21.225Z","data":{"buyer":{},"droid":{"name":"XE149"},"seller":{},"price":"1.8"},"id":"b6d5c8af-b4c9-46de-9eef-32023eb3df86","activity_type":"DROID_BOUGHT","topic":null,"event":"activity-feed"}}
+{"data":{"created_at":"2024-04-06T00:02:32.173Z","data":{"buyer":{},"droid":{"name":"KI863"},"seller":{},"price":"1.8"},"id":"62bf6437-1f99-4122-b312-17a5fd0be898","activity_type":"DROID_BOUGHT","topic":null,"event":"activity-feed"}}
+{"data":{"created_at":"2024-04-06T00:02:57.773Z","data":{"buyer":{},"civilian":{"name":"COM🚨18000/26000"},"seller":{},"price":"7.0"},"id":"8e7d01ee-3391-4eb7-8213-1ec6bc793c72","activity_type":"CIVILIAN_BOUGHT","topic":null,"event":"activity-feed"}}
+{"data":{"id":"7c32e148-0d75-4cad-8e72-c12a733d9ebe","activity_type":"HOLOBUILDING_CREATED","data":{"user":{}},"created_at":"2024-04-06 00:03:47.437568"}}
+{"data":{"created_at":"2024-04-06T00:04:06.630Z","data":{"buyer":{},"civilian":{"name":"JVA-EG-RC1-M1"},"seller":{},"price":"10.0"},"id":"e04fa64c-aa69-496f-b029-73c7aa072cc5","activity_type":"CIVILIAN_BOUGHT","topic":null,"event":"activity-feed"}}
+{"data":{"id":"7e892c4c-5bf2-44c9-929f-37113cd519a5","activity_type":"HOLOBUILDING_CREATED","data":{"user":{}},"created_at":"2024-04-06 00:04:42.923588"}}
