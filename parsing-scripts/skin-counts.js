@@ -58,7 +58,12 @@ for (let index = 0; index < meta.files.length; index++) {
     const file = fs.readFileSync('../logs/' + meta.files[index], 'utf8');
     const lines = file.split('\r\n').slice(0, -1);
     for (let index = 0; index < lines.length; index++) {
-        const element = JSON.parse(lines[index]);
+	let element;
+	try{
+        	element = JSON.parse(lines[index]);
+	}catch{
+		continue;
+	}
         if ('AVATAR_GIFT_BOUGHT' !== element.data.activity_type && 'AVATAR_BOUGHT' !== element.data.activity_type || new Date(element.data.created_at) < new Date(meta.startTimestamp)) {
             continue;
         }
