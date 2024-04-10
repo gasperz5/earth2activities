@@ -1,5 +1,5 @@
 // @name         Discord bot for skins
-// @version      0.1.6
+// @version      0.1.7
 // @description  Simple log for earth2.io activities
 // @author       GasperZ5 -- gasperz (Discord) -- gasper (7.5% code for E2)
 // @support      https://www.buymeacoffee.com/gasper
@@ -46,8 +46,8 @@ async function start() {
     console.log(DISCORD_TOKEN, STATS_DISCORD_CHANNEL_ID, ANNOUNCE_DISCORD_CHANNEL_ID);
     async function handleMessage(message) {
         if (message.data.activity_type === 'AVATAR_BOUGHT' || message.data.activity_type === 'AVATAR_GIFT_BOUGHT') {
-            const name = message?.data?.data?.name || 'unknown';
-            const count = message?.data?.data?.quantity || 1;
+            const name = (message && message.data && message.data.data && message.data.data.name) ? message.data.data.name : 'unknown';
+            const count = (message && message.data && message.data.data && message.data.data.quantity) ? message.data.data.quantity : 1;
 
             if (bulkNotification[name] === undefined) {
                 bulkNotification[name] = { count: 0, date: new Date() };

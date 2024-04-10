@@ -1,5 +1,5 @@
 // @name         List Jewel Buyers
-// @version      0.1.0
+// @version      0.1.1
 // @description  This script will read the file and list the buyers of jewels and the amount of jewels they bought.
 // @author       GasperZ5 -- gasperz (Discord) -- gasper (7.5% code for E2)
 // @support      https://www.buymeacoffee.com/gasper
@@ -30,15 +30,15 @@ for (let i = 2; i < argv.length; i++) {
             continue;
         }
 
-        let buyer = element.data.data.buyer?.username || 'anonymous';
-        let seller = element.data.data.seller?.username || 'anonymous';
+        let buyer = element.data.data.buyer? element.data.data.buyer.username :'anonymous';
+        let seller = element.data.data.seller? element.data.data.seller.username: 'anonymous';
         let price = parseFloat(element.data.data.price) || 0;
         let name = element.data.data.jewel.name;
 
         objects.push({ buyer, seller, price, element, name });
 
         if (!buyers[buyer]) {
-            buyers[buyer] = { count: 0, id: element.data.data.buyer?.id || 'anonymous', price: 0 };
+            buyers[buyer] = { count: 0, id: element.data.data.buyer?element.data.data.buyer.id : 'anonymous', price: 0 };
         }
         buyers[buyer].count++;
         count++;
