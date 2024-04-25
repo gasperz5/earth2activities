@@ -23,9 +23,10 @@ meta = { startTimestamp: new Date('2024-03-31T04:10:00.000Z'), files: ['2024-03-
 meta = { startTimestamp: new Date('2024-04-01T09:05:00.000Z'), files: ['2024-04-01.log', '2024-04-02.log'], drop: 'WP Skin' }
 meta = { startTimestamp: new Date('2024-04-07T17:05:00.000Z'), files: ['2024-04-07.log', '2024-04-08.log'], drop: 'Cyber Ring' }
 meta = { startTimestamp: new Date('2024-04-11T21:15:00.000Z'), files: ['2024-04-11.log', '2024-04-12.log'], drop: 'Windbreaker' }
+meta = { startTimestamp: new Date('2024-04-15T07:00:00.000Z'), files: ['2024-04-15.log', '2024-04-16.log'], drop: 'Tactical' }
 	*/
 
-    meta = { startTimestamp: new Date('2024-04-15T07:00:00.000Z'), files: ['2024-04-15.log', '2024-04-16.log'], drop: 'Tactical' }
+    meta = { startTimestamp: new Date('2024-04-25T13:30:00.000Z'), files: ['2024-04-25.log', '2024-04-26.log'], drop: 'Soundwave' }
 
 
 } else {
