@@ -24,8 +24,14 @@ for (let i = 2; i < argv.length; i++) {
     const lines = file.split('\r\n');
 
     for (let index = 0; index < lines.length - 1; index++) {
-        const element = JSON.parse(lines[index]);
-        all.push(element);
+        let element;
+	try {
+	    element = JSON.parse(lines[index]);
+	} catch {
+	    continue;
+	}
+
+	    all.push(element);
         if (!types[element.data.activity_type]) {
             types[element.data.activity_type] = { count: 0 };
         }
